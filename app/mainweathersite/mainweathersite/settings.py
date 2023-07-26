@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-!51de+g66od3h7p@3h6qkjv=umcmud8u^a93lf(b_noypfeg5)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True # if true, disables admin CSS
 
 ALLOWED_HOSTS = ["*"]
 
@@ -115,6 +115,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
+
+STATIC_ROOT = BASE_DIR / 'productionstatic' # collects static files when py manage.py collectstatic is run
 
 STATIC_URL = 'static/'
 
