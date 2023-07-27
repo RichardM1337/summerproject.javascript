@@ -78,6 +78,9 @@ varialbe = get_object_or_404(whateveryouwantthevariabletobe)
 ```
 Aforementioned code can also work with lists with get_list_or_404
 # Terminal Commands
+py manage.py collectstatic -- collects static files (after setting STATIC_ROOT)
+django-admin startproject {projectname}  -- makes project
+python manage.py startapp {subname}  -- creates {subname} app
 python manage.py runserver -- starts server
 python manage.py migrate -- looks at settings.installed_apps foranything necessary to do such as creating tables for databases
 python manage.py makemigrations {subapp} -- update models as migration

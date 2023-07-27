@@ -1,1 +1,0 @@
-by putting another secondapp subdirectory, django is able to differentiate between this templates folder and another similarly named templates folder.
