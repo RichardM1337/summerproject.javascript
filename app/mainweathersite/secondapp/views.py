@@ -4,8 +4,8 @@ from .models import weatherInput, weatherQuery
 
 def index(request):
     weatherQuery_latest = weatherQuery.objects.order_by("-pub_date")[:5] # orders question by publish date
-    output = ", ".join([q.weather_text for q in weatherQuery_latest]) # joins questions in list and separates by comma
-    return HttpResponse(output)
+    context = {"weatherQuery_latest":weatherQuery_latest,}
+    return render(request,"secondapp/index.html",context)
 # Create your views here.
 
 def search(request,location_id):

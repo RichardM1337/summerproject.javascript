@@ -1,0 +1,9 @@
+{% if weatherquery_latest %}
+    <ul>
+    {% for weatherquery in weatherquery_latest %}
+        <li><a href="{% url 'polls:detail' location.id %}">{{weatherquery.weather_text}}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p> no weatherQuery </p>
+{% endif %}
