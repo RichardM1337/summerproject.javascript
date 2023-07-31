@@ -1,8 +1,6 @@
-
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% load static %}
-{% block content %}
-
+{% blockcontent%}
 <div class = "container"> 
     <br><br>
     <div class="row"> 
@@ -13,10 +11,9 @@
           <p class="card-text">{{ weather.temp_c}} / {{weather.temp_f}}</p>
         </div> 
         <div class="col-md-7 shadow-lg p-3 mb-5 bg-white rounded">
-          <h1 class="my-3">Food Description</h1>
-          <h1 class="my-3">Food Details</h1>
+          <h1 class="my-3">weather Description</h1>
+          <h1 class="my-3">weather Details</h1>
         </div>
     </div>
 </div>
-
 {% endblock %}

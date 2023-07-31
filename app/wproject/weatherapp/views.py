@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import requests
 from weatherapp.models import weatherclass
+from django.shortcuts import redirect
 # Create your views here.
 
 def get_weather(request):
@@ -8,7 +9,7 @@ def get_weather(request):
     all_weather = weatherclass.objects.all().order_by('-id')
     if "location" in request.GET:
         location = request.args.GET['location']
-        url = 'http://api.weatherapi.com/v1/current.json?key=581f26cd97c24faa809164418230507%20&q=%s&aqi=no' % location
+        url = 'http://api.weatherapi.com/v1/current.json?key=581f26cd97c24faa809164418230507%20&q=%s&aqi=no' %location
         unordered = requests.get(url)
         apijson = unordered.json()
         weather = apijson['current']
