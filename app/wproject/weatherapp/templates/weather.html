@@ -4,15 +4,23 @@
 <div class = "container">
     <div class = "text-center container">
       <br>
-      <h2 class = "text-center">Search for the weather in your area</h2> 
+      <h2 class = "text-center">Search the weather in your area</h2> 
       <br>
       <form method="GET">
-        <input type = "text" name = "name" placeholder="Search..." class = "text-center" required>
-        <button type = "submit" class = "btn-danger btn-sm">SEARCH Weather</button>
+        <input type = "text" name = "location" placeholder="..." class = "location" required>
+        <button type = "submit" class = "btn-danger btn-sm">SEARCH</button>
       </form> 
-      {% if weatherdata %}
-      <p> the weather near you is {{ weather.temp_c }} // {{weather.temp_f}}
-      {% endif %}
+      {% if "location" in weatherdict %}
+        <h1> welcome to {{ weatherdict.location.name }}  </h1>
+        <h2> {{weatherdict.location.region|default_if_none:""}} {{weatherdict.location.country}} </h2>
+        <p> the weather near you is {{ weatherdict.current.temp_c }} C // {{ weatherdict.current.temp_f }} F </p>
+        <p> the average weather for today is {{weatherdict.forecast.forecastday.0.day.avgtemp_c}} C // {{ weatherdict.forecast.forecastday.0.day.avgtemp_f }} F </p>
+        <p> the average weather for tomorrow is {{weatherdict.forecast.forecastday.1.day.avgtemp_c}} C // {{ weatherdict.forecast.forecastday.1.day.avgtemp_f }} F </p>
+      {% elif "error" in weatherdict %}
+        <p> No data. Maybe you spelt something wrong? </p>
+      {% else %}
+        <p> Welcome! </p>
+      {% endif %} 
       </div> 
   </div>
 {% endblock %}

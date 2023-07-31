@@ -4,6 +4,6 @@ from . import views
 
 
 urlpatterns = [
-    path("weather/<int:id>",views.weather_detail,name="weather_detail"),
+    path("weather/<int:id>",views.get_weather,name="weather"),
     path('',views.get_weather, name="weather")
 ]
