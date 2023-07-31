@@ -10,6 +10,9 @@
         <input type = "text" name = "name" placeholder="Search..." class = "text-center" required>
         <button type = "submit" class = "btn-danger btn-sm">SEARCH Weather</button>
       </form> 
-    </div> 
+      {% if weatherdata %}
+      <p> the weather near you is {{ weather.temp_c }} // {{weather.temp_f}}
+      {% endif %}
+      </div> 
   </div>
 {% endblock %}
