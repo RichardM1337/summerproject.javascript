@@ -91,3 +91,4 @@ python manage.py test {subapp} -- runs tests.py $###.
 
 # Tips
 - put another secondapp subdirectory sothat django is able to differentiate between said templates folder and another similarly named templates folder.
+- bypass saved Django cache (like css) with CTRL + F5

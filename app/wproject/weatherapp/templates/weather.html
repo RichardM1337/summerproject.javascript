@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
+<head><link rel="stylesheet" type "utf-8" href="{% static 'weatherapp/style.css' %}"> </head>
 {% block content %}
 <div class = "container">
     <div class = "text-center container">
       <br>
-      <h2 class = "text-center">Search the weather in your area</h2> 
+      <h2 class = "text-center">{{ weatherdict.location.name|default_if_none:"Search another place here" }} </h2> 
       <br>
       <form method="GET">
         <input type = "text" name = "location" placeholder="..." class = "location" required>
         <button type = "submit" class = "btn-danger btn-sm">SEARCH</button>
       </form> 
       {% if "location" in weatherdict %}
-        <h1> welcome to {{ weatherdict.location.name }}  </h1>
         <h2> {{weatherdict.location.region|default_if_none:""}} {{weatherdict.location.country}} </h2>
         <p> the weather near you is {{ weatherdict.current.temp_c }} C // {{ weatherdict.current.temp_f }} F </p>
+        <div class="divider"></div>
         <p> the average weather for today is {{weatherdict.forecast.forecastday.0.day.avgtemp_c}} C // {{ weatherdict.forecast.forecastday.0.day.avgtemp_f }} F </p>
         <p> the average weather for tomorrow is {{weatherdict.forecast.forecastday.1.day.avgtemp_c}} C // {{ weatherdict.forecast.forecastday.1.day.avgtemp_f }} F </p>
       {% elif "error" in weatherdict %}

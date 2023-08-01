@@ -1,0 +1,47 @@
+*{
+    font-family: 'REM', sans-serif;
+    font-weight:bold;
+    font-size: larger;
+}
+
+.divider{
+    border: 6px solid green;
+    height: 500px;
+    width:0px; 
+    margin-left:auto;
+    margin-right:auto;
+}
+.text-center,.locinput,.btn-sm{
+    align-content: center;
+    text-align: center;
+}
+.container{
+    align-content: center;
+    align-items: center;
+}
+
+body {
+    background: linear-gradient(45deg, #7fe1ff, #e3ff11, #00384c, #ffffff);
+    background-size: 400% 400%;
+    animation: gradient 20s ease infinite;
+    filter: invert(1);
+    mix-blend-mode: difference;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 90%;
+    }
+    25% {
+        background-position: 25% 25%;
+    }
+    50% {
+        background-position: 100% 0%;
+    }
+    75%{
+        background-position: 75% 50%;
+    }
+    100% {
+        background-position: 0% 90%;
+    }
+} 
